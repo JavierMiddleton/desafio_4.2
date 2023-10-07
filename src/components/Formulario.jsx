@@ -18,14 +18,10 @@ const Formulario = () => {
     e.preventDefault();
     //Validation if
     if (nombre === "" || email === "" || pass === "" || confirmPass === "") {
-      alert("Rellena todo");
     } else if (pass !== confirmPass) {
-      alert("Tus contraseñas deben calzar");
       //Reg Ex pattern test. If not correct, sends True to run next block
     } else if (!validEmail.test(email)) {
-      alert("Inrgesa un email correcto");
     } else {
-      alert("Éxito!");
     }
   };
 
