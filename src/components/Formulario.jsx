@@ -1,12 +1,11 @@
 import { useState } from "react";
 
-const Formulario = () => {
+const Formulario = ({ errorAlert, successAlert }) => {
   //useState consts
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
-  const [error, setError] = useState(false);
 
   // Regular Expression valid email pattern
   const validEmail = new RegExp(
@@ -18,14 +17,18 @@ const Formulario = () => {
     e.preventDefault();
     //Validation if
     if (nombre === "" || email === "" || pass === "" || confirmPass === "") {
-      alert("Rellena todo");
+      errorAlert("Rellena todos los campos.");
+      successAlert("");
     } else if (pass !== confirmPass) {
-      alert("Tus contraseñas deben calzar");
+      errorAlert("Las contraseñas no coinciden.");
+      successAlert("");
       //Reg Ex pattern test. If not correct, sends True to run next block
     } else if (!validEmail.test(email)) {
-      alert("Inrgesa un email correcto");
+      errorAlert("Ingresa un email válido.");
+      successAlert("");
     } else {
-      alert("Éxito!");
+      successAlert("¡Logrado!");
+      errorAlert("");
     }
   };
 

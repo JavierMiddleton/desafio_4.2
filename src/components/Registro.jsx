@@ -8,7 +8,7 @@ import {
 import Formulario from "./Formulario";
 import Alert from "./Alert";
 
-function Registro() {
+function Registro({ error, success, setError, setSuccess }) {
   return (
     <div className="register-container">
       <h1 className="m2">Crea tu cuenta</h1>
@@ -18,8 +18,8 @@ function Registro() {
         <SocialButton iconClass={faLinkedin} />
       </div>
       <p>Usa tu email para registrarte</p>
-      <Formulario />
-      <Alert colorAlert={"alert-danger"} messageAlert={"Prueba de alert"} />
+      <Formulario errorAlert={setError} successAlert={setSuccess} />
+      <Alert errorAlert={error} successAlert={success} />
     </div>
   );
 }

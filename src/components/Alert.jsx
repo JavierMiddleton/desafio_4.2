@@ -1,9 +1,17 @@
-const Alert = ({ messageAlert, colorAlert }) => {
-  const alertClass = `alert ${colorAlert} align-items-center`;
+import React from "react";
+
+const Alert = ({ successAlert, errorAlert }) => {
   return (
-    <div>
-      <h5 class={alertClass}>{messageAlert}</h5>
-    </div>
+    <>
+      {successAlert && !errorAlert && (
+        <h5 className="alert alert-success align-items-center">
+          {successAlert}
+        </h5>
+      )}
+      {errorAlert && !successAlert && (
+        <h5 className="alert alert-danger align-items-center">{errorAlert}</h5>
+      )}
+    </>
   );
 };
 
